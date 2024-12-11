@@ -1,0 +1,103 @@
+Entities in the Library Management System:-
+
+After analyzing the requirements of the Library Management System, I have identified six main entities:
+
+Resource
+Member
+Loan
+Reservation
+Category
+Inventory
+------------------------------------------------------------------------------------------------------------------------
+
+Attributes of Each Entity:-
+1. Resource:-
+This entity represents the materials available in the library, such as books, journals, and magazines:-
+
+A unique resource_id to identify it.
+The title of the resource.
+The author who created the resource.
+The publisher responsible for its publication.
+The category it belongs to (e.g., Fiction, Science, Magazine).
+The total_quantity of this resource in the library.
+The current_quantity to track how many copies are currently available.
+A status to indicate if the resource is available, missing, or damaged.
+
+
+2. Member:-
+
+This entity represents the people who use the library, such as students, faculty, or staff. Each member has:-
+
+A unique member_id for identification.
+name to record their full name.
+email for communication.
+phone number for contact purposes.
+address for personal details.
+member_type, indicating whether they are a student, faculty member, or staff.
+A status to show if they are active or inactive in the library system.
+
+
+3. Loan :- 
+
+The Loan entity tracks borrowing transactions. Every loan has:
+
+A unique loan_id.
+The member_id of the person borrowing the resource (linked to the Member entity).
+The resource_id of the borrowed material (linked to the Resource entity).
+The issue_date when the resource was borrowed.
+The due_date by which the resource must be returned.
+The return_date to track when the resource is actually returned.
+Any applicable fine_amount if the return is overdue.
+
+
+4. Reservation
+
+
+This entity helps manage the reservation of resources. If a resource is currently on loan, members can reserve it. The attributes for this entity are:
+
+A unique reservation_id.
+The member_id of the person making the reservation .
+The resource_id of the reserved material .
+The reservation_date, indicating when the reservation was made.
+The reservation_status, such as Active, Notified, or Canceled.
+
+
+5. Category
+
+
+The Category entity helps group resources into types like books, magazines, or journals. Its attributes are:
+
+A unique category_id.
+The name of the category (e.g., Science, Fiction, Non-Fiction).
+A brief description about the category.
+
+
+6. Inventory
+
+This entity helps track the condition and availability of resources. Each inventory record includes:
+
+A unique inventory_id.
+The resource_id of the resource (linked to the Resource entity).
+The status of the item, such as Available, Missing, or Damaged.
+
+------------------------------------------------------------------------------------------------------------------------------
+Relationships Between Entities :- 
+
+This are the 1:1 relations :-
+
+Member and Membership Card: Each member has exactly one membership card, and each membership card is associated with one member.
+
+------------------------------------------------------------------------------
+
+This are the 1:M relations :-
+------------------------------------------------------------------------------
+Loan and Member: Each loan is associated with one member, but a member can have multiple loans. 
+Loan and Resource: A loan involves one resource, but a resource can be loaned multiple times.
+Reservation and Member: A reservation is made by one member, but a member can make multiple reservations.  
+Reservation and Resource: Each reservation involves one resource, but a resource can have multiple reservations. 
+-------------------------------------------------------------------------------
+This are the Many-to-Many relationships :- 
+
+Member and Resource: A member can borrow multiple resources, and a resource can be borrowed by multiple members over time. 
+Member and Reservation: A member can reserve multiple resources, and a resource can be reserved by multiple members at different times. 
+
